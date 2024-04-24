@@ -1,17 +1,17 @@
-body {
-  font-family: sans-serif;
+* {
+  font-family: "Roboto", sans-serif;
 }
 
 .wrapper {
-  width: 100%; 
+  width: 100%;
 }
 
 #sidebar {
-    min-width: 80px;
-    max-width: 80px;
-    height: 100vh;
-    color: #fff;
-    position: fixed;
+  min-width: 80px;
+  max-width: 80px;
+  height: 100vh;
+  color: #fff;
+  position: fixed;
 }
 
 #sidebar .hr {
@@ -135,7 +135,8 @@ textarea[placeholder].form-control {
   margin-top: -80px;
 }
 
-.index-text h1,h6 {
+.index-text h1,
+h6 {
   line-height: 20px;
 }
 
@@ -186,7 +187,8 @@ textarea[placeholder].form-control {
     margin-top: 0;
   }
 
-  .index-text h1,h6 {
+  .index-text h1,
+  h6 {
     transform: scale(0.7);
     line-height: 10px;
   }
@@ -214,10 +216,11 @@ textarea[placeholder].form-control {
 }
 
 .object-fit {
-    height: 100vh; /* height of container */
-    width: 100%;
-    object-fit: cover;
-    object-position: 50% 0;
+  height: 100vh;
+  /* height of container */
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
 }
 
 .arhitecture .container {
@@ -233,10 +236,12 @@ textarea[placeholder].form-control {
 }
 
 .object-fit {
-  width: 100%; /* width of container */
-    height: 65vh; /* height of container */
-    object-fit: cover;
-    object-position: 50% 50%;
+  width: 100%;
+  /* width of container */
+  height: 65vh;
+  /* height of container */
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .info-card {
@@ -244,7 +249,7 @@ textarea[placeholder].form-control {
 }
 
 @media screen and (max-width: 1080px) {
-    .info-card {
+  .info-card {
     display: none;
   }
 }
@@ -316,12 +321,12 @@ textarea[placeholder].form-control {
 }
 
 .made-to-measure-img {
-    user-drag: none;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 input[type="file"].reference-img::file-selector-button {
@@ -338,10 +343,11 @@ input[type="file"].reference-img:hover::file-selector-button {
 }
 
 .object-fit-made {
-    height: 381px; /* height of container */
-    width: 100%;
-    object-fit: cover;
-    object-position: 50% 50%;
+  height: 381px;
+  /* height of container */
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .container-preview {
