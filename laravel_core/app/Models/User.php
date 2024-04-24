@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -21,6 +22,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
+        'ip',
+        'PIN'
     ];
 
     /**
@@ -41,4 +45,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getUser($id) {
+        return DB::table('users')->select('id', 'name', 'email', 'ip', 'created_at', 'updated_at')->where('id', $id)->first();
+    }
+
+    public static function makeClient($id) {
+        return (bool) DB::table('users')->where('id', $id)->update(['role_id' => UserRole::CLIENT]);
+    }
+    
+    public static function makeAdmin($id) {
+        return (bool) DB::table('users')->where('id', $id)->update(['role_id' => UserRole::ADMIN]);
+    }
+    
+    public static function makeManager($id) {
+        return (bool) DB::table('users')->where('id', $id)->update(['role_id' => UserRole::MANAGER]);
+    }
 }

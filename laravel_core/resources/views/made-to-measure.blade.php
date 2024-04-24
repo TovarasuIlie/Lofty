@@ -22,6 +22,11 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/icons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/icons/favicon-16x16.png">
 	<link rel="manifest" href="assets/img/icons/site.webmanifest">
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Playfair+Display:ital@1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	
 	<title>Made To Measure - Lofty by Flory Cucu</title>
 </head>
@@ -128,7 +133,7 @@
 						</tr>
 					</tbody>
 				</table><br>
-				<p>Daca doresti sa faci o comanda, poti completa formularul de mai jos, iar dupa sa astepti un raspuns din partea noastra.</p>
+				<p>Poti comanda orice articol de pe site, personalizat pe masurile tale exacte, completand formularul de mai jos. Te vom contacta in cel mai scurt pentru ati oferi toate informatiile necesare.</p>
 				<h3 class="text-uppercase" style="margin-bottom: 30px;">Date de <b>Contact</b></h3>
 				@if ($errors->any())
 				    <div class="alert alert-danger">
@@ -150,17 +155,17 @@
 							<div class="col">
 							  	<label for="email" class="form-label"><small><b>Adresa de email:</b></small></label>
 						    	<input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
-						    	<div id="email" class="form-text"><small><i class="fas fa-exclamation-triangle"></i> Pe acest email o sa te contactam.</small></div>
+						    	<div id="email" class="form-text"><small><i class="fas fa-exclamation-triangle"></i> Pe acest email te vom contacta.</small></div>
 							</div>
 							<div class="col">
 							  	<label for="phone-number" class="form-label"><small><b>Numar de telefon:</b></small></label>
 						    	<input type="text" class="form-control" id="phone-number" name="phone-number" value="{{ old('phone-number') }}">
-						    	<div id="phone-number" class="form-text"><small><i class="fas fa-exclamation-triangle"></i> Pe acest numar o sa te contactam.</small></div>
+						    	<div id="phone-number" class="form-text"><small><i class="fas fa-exclamation-triangle"></i> Pe acest numar de telefon te vom contacta.</small></div>
 							</div>
 						</div>
 					</div>
-					<h3 class="text-uppercase" style="margin-bottom: 30px; margin-top: 50px;">Masuri <b>Generale</b></h3>
-					<p><small>Pentru ati putea realiza rochia potrivita pentru tine, as dori sa ne comunici dimensiunile cerute. Pentru a stii ce si de unde trebuie masurat, va trebui sa respecti in tocmai desenul de mai jos. Toate dimensiunile vor fi trecute in <b>centimetri(cm)</b>.</small></p>
+					<h3 class="text-uppercase" style="margin-bottom: 30px; margin-top: 50px;">Masuri <b>Personalizate</b></h3>
+					<p><small>Pentru a crea ținuta potrivită/perfectă pentru tine, te rugăm să ne furnizezi măsurile solicitate. Pentru orientare, trebuie să urmezi cu exactitate desenul de mai jos. Toate dimensiunile vor fi trecute in <b>centimetri (cm).</b></p>
 					<div class="row">
 						<div class="col-lg">
 							<img src="{{ asset('assets/img/made-to-measure.jpg') }}" class="img-fluid rounded mx-auto d-block made-to-measure-img" alt="...">

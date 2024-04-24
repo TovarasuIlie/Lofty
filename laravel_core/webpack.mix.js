@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+mix.browserSync('http://localhost:8000/');
 
 /*
  |--------------------------------------------------------------------------
