@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class MadeToMeasureModel extends Model
 {
     use HasFactory;
-    protected $table = "made-to-measure";
+    protected $table = "made_to_measure";
 }

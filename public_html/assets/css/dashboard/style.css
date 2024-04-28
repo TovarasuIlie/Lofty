@@ -364,3 +364,47 @@
     border-radius: 0;
     background-color: rgb(0, 0, 0, 0.0) !important;
   }
+
+  .form-control {
+    border: none;
+    border-bottom: 2px solid #000;
+    border-radius: 0;
+  }
+  
+  input[placeholder].form-control {
+    font-family: Georgia;
+  }
+  
+  textarea[placeholder].form-control {
+    font-family: Georgia;
+  }
+  
+  .btn-black {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0;
+    border: 3px solid #000;
+  }
+  
+  .btn-black:hover {
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    border: 3px solid #000;
+    transition: 0.5 ease;
+  }
+  
+  .btn-outline-black {
+    background-color: #fff;
+    color: #000;
+    border-radius: 0;
+    border: 3px solid #000;
+  }
+  
+  .btn-outline-black:hover {
+    background-color: #000;
+    color: #fff;
+    border: 3px solid #000;
+    transition: 0.5 ease;
+  }

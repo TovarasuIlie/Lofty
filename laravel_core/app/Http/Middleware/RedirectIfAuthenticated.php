@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\UserRole;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
@@ -23,7 +24,11 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                if(Auth::guard($guard)->user()->role_id == UserRole::CLIENT) {
+                    return redirect(RouteServiceProvider::HOME_PAGE);
+                } else {
+                    return redirect(RouteServiceProvider::DASHBOARD_PAGE);
+                }
             }
         }
 
