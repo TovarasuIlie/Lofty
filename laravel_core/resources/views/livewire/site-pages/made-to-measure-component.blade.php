@@ -180,18 +180,10 @@
                 Comanda!</button>
         </center>
     </form>
+    
+    <script type="text/javascript" src="{{ asset('assets/js/made-to-measure.js') }}"></script>
     <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
     <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
     <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
     <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
-    <script>
-        FilePond.registerPlugin(FilePondPluginFileValidateType);
-        FilePond.registerPlugin(FilePondPluginFileValidateSize);
-        FilePond.registerPlugin(FilePondPluginImagePreview);
-        // Get a reference to the file input element
-        const inputElement = document.querySelector('input[type="file"]');
-
-        // Create a FilePond instance
-        const pond = FilePond.create(inputElement);
-    </script>
 </div>

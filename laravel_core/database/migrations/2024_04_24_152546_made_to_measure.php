@@ -15,20 +15,17 @@ return new class extends Migration
             $table->id();
             $table->string('fullname', 255);
             $table->string('email');
-            $table->string('phoneNumber', 10);
+            $table->string('phone_number', 10);
             $table->integer('height');
-            $table->integer('bustCircumference');
-            $table->integer('circumferenceUnderTheBust');
-            $table->integer('waistCircumference');
-            $table->integer('hipsCircumference');
-            $table->integer('armLength');
-            $table->integer('insideLengthLeg');
-            $table->integer('shoulderWidth');
-            $table->binary('photo1');
-            $table->binary('photo2');
-            $table->binary('photo3');
-            $table->boolean('finished');
-            $table->timestamp('placedAt')->useCurrent();
+            $table->integer('bust_circumference');
+            $table->integer('circumference_under_the_bust');
+            $table->integer('waist_circumference');
+            $table->integer('hips_circumference');
+            $table->integer('arm_length');
+            $table->integer('inside_length_leg');
+            $table->integer('shoulder_width');
+            $table->boolean('status')->default(0);
+            $table->timestamp('placed_at')->useCurrent();
         });
     }
 

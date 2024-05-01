@@ -291,14 +291,9 @@
     margin-bottom: -250px;
 }
 
-#order-images .object-fit-made {
-    height: 55vh;
-    width: 100%;
-    object-fit: cover;
-  }
-
 #order-images .container-preview {
-    height: 55vh;
+    width: 320px;
+    height: 450px;
     cursor: pointer;
   }
 
@@ -344,18 +339,6 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
-  }
-
-  @media (max-width: 992px) {
-    #order-images .container-preview {
-        height: 800vh;
-        /* width: 60%; */
-    }
-
-    #order-images .object-fit-made {
-        height: 800vh;
-        /* width: 60%; */
-    }
   }
 
 #order-images .modal .modal-content {

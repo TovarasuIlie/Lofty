@@ -29,6 +29,17 @@ return [
     */
 
     'disks' => [
+        'media' => [
+            'driver' => 'local',
+            'root'   => public_path('..\..\public_html\media'),
+            'url'    => env('APP_URL').'/media',
+        ],
+
+        'made-to-measure' => [
+            'driver' => 'local',
+            'root'   => public_path('..\..\public_html\media\made-to-measure'),
+            'url'    => env('APP_URL').'/media/made-to-measure',
+        ],
 
         'local' => [
             'driver' => 'local',
@@ -67,7 +78,7 @@ return [
     */
 
     'links' => [
-        public_path('storage') => storage_path('app/public_html'),
+        public_path('..\..\public_html\storage') => storage_path('app\public'),
     ],
 
 ];

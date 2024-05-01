@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Livewire\Dashboard\ManagerArea;
+
+use App\Models\User;
+use Livewire\Attributes\Layout;
+use Livewire\Component;
+
+#[Layout('livewire.dashboard.dashboard_layout.app')]
+class AccountManagementComponent extends Component
+{
+    public $users;
+
+    public function render()
+    {
+        $this->users = User::all();
+        return view('livewire.dashboard.manager-area.account-management-component');
+    }
+}
