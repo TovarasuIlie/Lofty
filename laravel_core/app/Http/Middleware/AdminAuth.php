@@ -19,7 +19,7 @@ class AdminAuth
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()) {
-            if(Auth::user()->role_id > UserRole::ADMIN) {
+            if(Auth::user()->role_id >= UserRole::ADMIN) {
                 return $next($request);
             } else {
                 return redirect()->to('/')->with('error', 'Nu esti autorizat sa intri pe acea pagina!');

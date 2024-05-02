@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('is-manager', function() : bool {
-            return (bool) Auth ::user()->role_id == UserRole::MANAGER;
+            return (Auth::user()->role_id == UserRole::MANAGER);
         });
     }
 }

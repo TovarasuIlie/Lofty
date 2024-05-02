@@ -41,7 +41,7 @@ class GenerateLinkComponent extends Component
                         'subject'   => 'Link-ul pentru inregistrare contului.'
                     ]
                 ];
-                SendLinkOnEmailJob::dispatch($details);
+                SendLinkOnEmailJob::dispatch($details)->onQueue('send-create-link-email');
                 $this->reset(['email']);
                 request()->session()->flash('success', 'Link-ul a fost trimis cu succes!');
             }

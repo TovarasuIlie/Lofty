@@ -53,7 +53,7 @@ class AccountDetailsComponent extends Component
                         'subject'   => 'Reseteaza parola cont.'
                     ]
                 ];
-                SendResetLinkJob::dispatch($details);
+                SendResetLinkJob::dispatch($details)->onQueue('send-reset-link-email');
                 $this->dispatch('toast', type: 'success', title: 'Link-ul a fost trimis cu succes!');
             } else {
                 $this->dispatch('alert', type: 'error', title: 'A aparut o eroare, te rugam sa reincerci!');

@@ -16,6 +16,10 @@ use App\Http\Livewire\Dashboard\Index\IndexComponent as IndexIndexComponent;
 use App\Http\Livewire\Dashboard\MadeToMeasure\FinishedOrders;
 use App\Http\Livewire\Dashboard\MadeToMeasure\NewOrders;
 use App\Http\Livewire\Dashboard\MadeToMeasure\ViewOrder;
+use App\Http\Livewire\Dashboard\Maintenance\ActiveJobsListComponent;
+use App\Http\Livewire\Dashboard\Maintenance\FailedJobsListComponent;
+use App\Http\Livewire\Dashboard\Maintenance\FailedJobComponent;
+use App\Http\Livewire\Dashboard\Maintenance\MaintenanceCompponent;
 use App\Http\Livewire\Dashboard\ManagerArea\AccountLogsComponent;
 use App\Http\Livewire\Dashboard\ManagerArea\GenerateLinkComponent;
 use App\Http\Livewire\SitePages\AboutUsComponent;
@@ -32,6 +36,7 @@ use App\Http\Middleware\AdminAuth;
 use App\Http\Middleware\LocationChangeMiddleware;
 use App\Http\Middleware\ManagerArea;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\TrackVisits;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,29 +49,29 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 |
 */
 
-Route::get('/', IndexComponent::class);
+Route::get('/', IndexComponent::class)->middleware([TrackVisits::class]);
 
-Route::get('/despre-noi', AboutUsComponent::class);
+Route::get('/despre-noi', AboutUsComponent::class)->middleware([TrackVisits::class]);
 
-Route::get('/made-to-measure', MadeToMeasureComponent::class);
+Route::get('/made-to-measure', MadeToMeasureComponent::class)->middleware([TrackVisits::class]);
 
-Route::get('/design-vestimentar', FashionDesignComponent::class);
+Route::get('/design-vestimentar', FashionDesignComponent::class)->middleware([TrackVisits::class]);
 
-Route::get('/consultanta-vestimentara', ClothingConsultancyComponent::class);
+Route::get('/consultanta-vestimentara', ClothingConsultancyComponent::class)->middleware([TrackVisits::class]);
 
-Route::get('/inchiriere-rochii', DressRentalComponent::class);
+Route::get('/inchiriere-rochii', DressRentalComponent::class)->middleware([TrackVisits::class]);
 
-Route::get('/atelier-croitorie-copii', TailoringWorkshopComponent::class);
+Route::get('/atelier-croitorie-copii', TailoringWorkshopComponent::class)->middleware([TrackVisits::class]);
 
 // Route::get('/colaboranti', function () {
 //     return view('collaborations');
 // });
 
-Route::get('/galerie-foto', GalleryComponent::class);
+Route::get('/galerie-foto', GalleryComponent::class)->middleware([TrackVisits::class]);
 
-Route::get('/contact', ContactComponent::class);
+Route::get('/contact', ContactComponent::class)->middleware([TrackVisits::class]);
 
-Route::get('/politica-magazin', ShopPolicyComponent::class);
+Route::get('/politica-magazin', ShopPolicyComponent::class)->middleware([TrackVisits::class]);
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/logare', AuthentificationLoginDashboard::class)->middleware([RedirectIfAuthenticated::class]);
@@ -101,6 +106,13 @@ Route::prefix('dashboard')->group(function () {
             Route::prefix('link-creare-cont')->group(function () {
                 Route::get('', GenerateLinkComponent::class);
             });
+        });
+        Route::group(['prefix' => 'maintenace', 'middleware' => [ManagerArea::class]], function() {
+            Route::get('', MaintenanceCompponent::class);
+            Route::get('/active-jobs', ActiveJobsListComponent::class);
+
+            Route::get('/failed-jobs', FailedJobsListComponent::class);
+            Route::get('/failed-jobs/job/{uuid}', FailedJobComponent::class);
         });
     });
 });

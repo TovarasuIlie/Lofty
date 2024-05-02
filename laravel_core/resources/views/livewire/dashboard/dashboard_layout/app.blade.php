@@ -82,6 +82,10 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                     Link Creare Conturi
                                 </a>
+                                    <a class="nav-link {{ request()->is('dashboard/maintenace') ? 'active' : '' }}" href="/dashboard/maintenace" wire:navigate>
+                                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                    Maintenace
+                                </a>
                             @endcan
                         </div>
                     </div>

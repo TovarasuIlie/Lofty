@@ -28,7 +28,6 @@ class LoginDashboard extends Component
         ];
 
         if(Auth::attempt($credentials)) {
-            // $this->dispatch('toast', title: 'Te-ai logat cu succes!');
             return $this->redirect('/dashboard', navigate: true);
         } else {
             request()->session()->flash('failed', '<b>Email-ul</b> sau <b>Parola</b> sunt incorecte!');

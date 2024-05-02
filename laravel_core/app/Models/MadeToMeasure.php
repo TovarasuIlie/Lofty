@@ -13,7 +13,6 @@ class MadeToMeasure extends Model implements HasMedia
 {
     use InteractsWithMedia;
     use HasFactory;
-    public $timestamps = false;
 
     protected $table = 'made_to_measure';
 

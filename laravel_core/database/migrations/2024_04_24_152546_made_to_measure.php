@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('inside_length_leg');
             $table->integer('shoulder_width');
             $table->boolean('status')->default(0);
-            $table->timestamp('placed_at')->useCurrent();
+            $table->timestamps();
         });
     }
 

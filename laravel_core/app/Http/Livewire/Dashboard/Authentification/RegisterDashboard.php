@@ -47,7 +47,6 @@ class RegisterDashboard extends Component
             ];
             if(User::create($newAccount)) {
                 CreateAccountLink::deleteToken($this->email, $this->token);
-                session()->forget(['token', 'email']);
                 return $this->redirect('/', navigate: true);
             } else {
                 request()->session()->flash('failed', 'A aparut o eroare, te rugam sa reincerci');
