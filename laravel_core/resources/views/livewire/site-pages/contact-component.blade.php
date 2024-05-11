@@ -1,6 +1,6 @@
 <div>
     <div class="container">
-        <h1 class="text-uppercase" style="margin-bottom: 100px;">Contact <b>Lofty</b></h1>
+        <h1 class="text-uppercase mb-5 pt-2">Contact <b>Lofty</b></h1>
         <p>Daca doresti sa iei legatura cu noi, poti completa formularul de mai jos.</p>
         <form class="card card-body shadow p-3 mb-5 bg-body rounded border-0" wire:submit="sendMessage">
             <div class="row">

@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="text-uppercase" style="margin-bottom: 50px;">Termeni și Condiții - <b>Lofty</b></h1>
+    <h1 class="text-uppercase mb-5 pt-2">Termeni și Condiții - <b>Lofty</b></h1>
     <p><strong>Ultima actualizare:</strong> [Data curentă]</p>
     <p>Bun venit pe Lofty, magazinul online administrat de Lofty SRL. Pentru a asigura o experiență transparentă și
         sigură, vă rugăm să citiți cu atenție următorii Termeni și Condiții.</p>

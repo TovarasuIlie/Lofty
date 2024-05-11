@@ -1,5 +1,5 @@
-<div class="container" style="font-size: 20px; padding: 50px 0 50px 0;">
-    <h1 class="text-uppercase" style="margin-bottom: 80px;">Despre <b>Lofty</b></h1>
+<div class="container">
+    <h1 class="text-uppercase mb-5 pt-2">Despre <b>Lofty</b></h1>
     <p style="text-indent: 30px;">Bine ai venit la <b>Lofty</b> - locul unde moda devine o expresie personalizată a
         individualității tale! Suntem un brand pasionat și dedicat, specializat în producția de haine la comandă, create
         cu atenție la detalii și ajustate perfect pe măsurile tale exacte. Cu o abordare unică, punem accent pe

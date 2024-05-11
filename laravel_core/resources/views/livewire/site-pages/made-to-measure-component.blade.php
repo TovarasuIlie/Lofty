@@ -1,5 +1,5 @@
-<div class="container" style="font-size: 20px; padding-top: 50px;">
-    <h1 class="text-uppercase" style="margin-bottom: 80px;">Ghid de <b>Marimi</b></h1>
+<div class="container">
+    <h1 class="text-uppercase mb-5 pt-2">Ghid de <b>Marimi</b></h1>
     <table class="table text-center">
         <thead class="table-dark">
             <th>Marime</th>

@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="text-uppercase" style="margin-bottom: 50px;">Design <b>Vestimentar</b></h1>
+    <h1 class="text-uppercase mb-5 pt-2">Design <b>Vestimentar</b></h1>
     <h2>Bun venit la <b>Lofty</b></h2>
     <p>Suntem pasionați de arta și expresia individuală prin modă. La atelierul nostru de creație, transformăm visele
         tale în realitate, oferind tinute personalizate și la comandă, create cu atenție la detalii și dedicare.</p>

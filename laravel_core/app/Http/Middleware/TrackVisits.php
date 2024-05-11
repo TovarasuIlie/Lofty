@@ -17,11 +17,10 @@ class TrackVisits
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(VisitorsTracker::where('ip', $request->ip())->whereRaw('visited_at = CURRENT_DATE()')->count() == 0) {
+        if(VisitorsTracker::where('ip', $request->ip())->whereBetween('visited_at', [Carbon::now()->addMinutes(-10)->format('Y-m-d H:i:s'), Carbon::now()->format('Y-m-d H:i:s')])->count() == 0) {
             VisitorsTracker::create([
                 'ip' => $request->ip(),
-                'user_agent' => $request->header('User-Agent'),
-                'visited_at' => Carbon::now()->format('Y-m-d')
+                'user_agent' => $request->header('User-Agent')
             ]);
         }
         return $next($request);

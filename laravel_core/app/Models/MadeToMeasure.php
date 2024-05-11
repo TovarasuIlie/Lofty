@@ -19,6 +19,7 @@ class MadeToMeasure extends Model implements HasMedia
     protected $fillable = [
         'fullname',
         'email',
+        'ip',
         'phone_number',
         'height',
         'bust_circumference',

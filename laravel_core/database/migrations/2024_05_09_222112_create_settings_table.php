@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('visitors_tracker', function (Blueprint $table) {
+        Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->ipAddress('ip');
-            $table->string('user_agent');
-            $table->timestamp('visited_at')->useCurrent();
+            $table->boolean('made_to_measure_closed')->default(0);
+            $table->boolean('maintenance')->default(0);
         });
     }
 
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('visitors_tracker');
+        Schema::dropIfExists('settings');
     }
 };

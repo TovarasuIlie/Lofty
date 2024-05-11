@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('visitors_tracker', function (Blueprint $table) {
-            $table->id();
-            $table->ipAddress('ip');
-            $table->string('user_agent');
-            $table->timestamp('visited_at')->useCurrent();
+        Schema::table('made_to_measure', function (Blueprint $table) {
+            $table->ipAddress('ip')->nullable();
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('visitors_tracker');
+        Schema::table('made_to_measure', function (Blueprint $table) {
+            //
+        });
     }
 };

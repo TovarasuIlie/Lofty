@@ -8,6 +8,7 @@ use App\Models\User;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Attributes\Rule;
 
 #[Layout('livewire.dashboard.dashboard_layout.app')]
 class AccountDetailsComponent extends Component
@@ -16,12 +17,43 @@ class AccountDetailsComponent extends Component
 
     public $roleId;
 
-    public function changeRole() {
-        if(auth()->user()->id == $this->user->id) {
-            $this->dispatch('alert', type: 'error', title: 'Nu poti sa iti setezi rolul singur!');
+    #[Rule('required|regex: /[A-Za-z] [A-Za-z]/')]
+    public $name;
+
+    #[Rule('required|email')]
+    public $email;
+
+    #[Rule('required|ip')]
+    public $ip;
+
+    public function editUser() {
+        if(count($this->getErrorBag()) == 0) {
+            $this->user->update([
+                'name' => $this->name,
+                'email' => $this->email,
+                'ip' => $this->ip
+            ]);
+            $this->dispatch('alert', type: 'success', title: 'Datele au fost editate cu succes!');
         } else {
-            $this->user->update(['role_id' => $this->roleId]);
-            $this->dispatch('toast', type: 'success', title: 'Rolul a fost actualizat cu succes!');
+            $this->dispatch('alert', type: 'error', title: 'Date incorecte, incearca sa fi mai atent!');
+            $this->validate();
+        }
+    }
+
+    public function changeRole() {
+        if($this->roleId > 0) {
+            if(auth()->user()->id == $this->user->id) {
+                $this->dispatch('alert', type: 'error', title: 'Nu poti sa iti setezi rolul singur!');
+            } else {
+                if(auth()->user()->role_id <= $this->roleId) {
+                    $this->dispatch('alert', type: 'error', title: 'Nu poti sa setezi un rol mai mare sau egal cu cel pe care il detii.');
+                } else {
+                    $this->user->update(['role_id' => $this->roleId]);
+                    $this->dispatch('toast', type: 'success', title: 'Rolul a fost actualizat cu succes!');
+                }
+            }
+        } else {
+            $this->dispatch('alert', type: 'error', title: 'Trebuie sa alegi un rol dintre cele disponibile!');
         }
     }
 
@@ -65,6 +97,9 @@ class AccountDetailsComponent extends Component
 
     public function render()
     {
+        $this->name = $this->user->name;
+        $this->email = $this->user->email;
+        $this->ip = $this->user->ip;
         return view('livewire.dashboard.manager-area.account-details-component')->title('Vizualizare cont '.$this->user->name." - Lofty by Flory Cucu");
     }
 }

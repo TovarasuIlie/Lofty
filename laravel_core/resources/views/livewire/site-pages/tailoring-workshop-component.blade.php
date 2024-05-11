@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="text-uppercase" style="margin-bottom: 50px;">Atelierele de <b>Croitorie</b> pentru <b>Copii</b></h1>
+    <h1 class="text-uppercase mb-5 pt-2">Atelierele de <b>Croitorie</b> pentru <b>Copii</b></h1>
     <h2><b>Bun venit la Atelierele Noastre de Croitorie pentru Copii!</b></h2>
     <p>La <b>Lofty</b>, ne dedicăm să îi învățăm pe cei mici arta și bucuria croitoriei într-un mediu creativ și
         distractiv. Cu ateliere adaptate special pentru copii, îi încurajăm să își exploreze imaginația și să își

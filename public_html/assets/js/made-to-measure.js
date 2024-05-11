@@ -25,12 +25,3 @@ window.addEventListener('toast', (event) => {
         title: "Signed in successfully"
       });
 });
-
-// FilePond.registerPlugin(FilePondPluginFileValidateType);
-// FilePond.registerPlugin(FilePondPluginFileValidateSize);
-// FilePond.registerPlugin(FilePondPluginImagePreview);
-// // Get a reference to the file input element
-// const inputElement = document.querySelector('input[type="file"]');
-
-// // Create a FilePond instance
-// const pond = FilePond.create(inputElement);

@@ -1,6 +1,6 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4">Creare Link</h1>
-    <div class="container mt-2 p-5">
+    <div class="container mt-5">
         <div class="container-md mb-5 align-items-center justify-content-center">
             <form wire:submit="generateLink">
                 @csrf
@@ -35,35 +35,37 @@
                 </div>
             </form>
         </div>
-        <table class="table table-striped text-center">
-            <thead class="table-dark">
-                <tr>
-                <th scope="col">Email</th>
-                <th scope="col">Generat la</th>
-                <th scope="col">Generat de</th>
-                <th scope="col">Expira la</th>
-                <th scope="col">Actiuni</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if(count($createdLinks) > 0)
-                    @foreach($createdLinks as $link)
+        <div class="table-responsive">
+            <table class="table table-striped text-center">
+                <thead class="table-dark">
                     <tr>
-                        <th>{{ $link->email }}</th>
-                        <th>{{ $link->generated_by }}</th>
-                        <td>{{ $link->generated_at }}</td>
-                        <td>{{ $link->expiration_at }}</td>
-                        <td>
-                            <button wire:click="deleteLink({{ $link->id }})" class="btn btn-sm btn-danger">Sterge Token!</button>
-                        </td>
+                    <th scope="col">Email</th>
+                    <th scope="col">Generat la</th>
+                    <th scope="col">Generat de</th>
+                    <th scope="col">Expira la</th>
+                    <th scope="col">Actiuni</th>
                     </tr>
-                    @endforeach
-                @else
-                <tr>
-                    <td colspan="6">Momentan nu este generat nici un link.</td>
-                </tr>
-                @endif
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @if(count($createdLinks) > 0)
+                        @foreach($createdLinks as $link)
+                        <tr>
+                            <th>{{ $link->email }}</th>
+                            <th>{{ $link->generated_by }}</th>
+                            <td>{{ $link->generated_at }}</td>
+                            <td>{{ $link->expiration_at }}</td>
+                            <td>
+                                <button wire:click="deleteLink({{ $link->id }})" class="btn btn-sm btn-danger">Sterge Token!</button>
+                            </td>
+                        </tr>
+                        @endforeach
+                    @else
+                    <tr>
+                        <td colspan="6">Momentan nu este generat nici un link.</td>
+                    </tr>
+                    @endif
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

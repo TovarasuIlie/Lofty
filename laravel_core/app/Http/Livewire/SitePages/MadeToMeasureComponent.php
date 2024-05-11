@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\SitePages;
 
 use App\Models\MadeToMeasure;
+use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Rule;
@@ -74,6 +75,7 @@ class MadeToMeasureComponent extends Component
         $order = [
             'fullname'                      => $this->fullname,
             'email'                         => $this->email,
+            'ip'                            => Request::ip(),
             'phone_number'                  => $this->phoneNumber,
             'height'                        => $this->height,
             'bust_circumference'            => $this->bustCircumference,

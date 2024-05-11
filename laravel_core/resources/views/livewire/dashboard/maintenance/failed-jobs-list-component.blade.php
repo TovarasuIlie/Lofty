@@ -28,4 +28,5 @@
         @endif
         </tbody>
     </table>
+    {{ $failedJobs->links('pagination::bootstrap-5') }}
 </div>

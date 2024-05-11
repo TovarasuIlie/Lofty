@@ -43,7 +43,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- @livewireStyles --}}
 
-    <title>{{ $title ?? 'Contact - Lofty by Flory Cucu' }}</title>
+    <title>{{ $title ?? 'Lofty by Flory Cucu' }}</title>
 </head>
 
 <body>
@@ -100,7 +100,7 @@
                 <div class="vertical-writing text-uppercase mx-auto">Lofty by Flory Cucu</div>
                 <hr class="mx-auto" style="width: 70%;">
             </div>
-            <div class="container" style="margin-top: 30vh;">
+            <div class="container" style="margin-top: 25vh;">
                 <hr class="mx-auto" style="width: 70%;">
                 <div class="d-grid sidebar-buttons">
                     <a class="btn btn-outline-light m-1" href="https://www.facebook.com/lofty.fashion.design"

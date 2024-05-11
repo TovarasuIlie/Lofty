@@ -69,7 +69,25 @@
         </div>
     </div>
     @endif
+    <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sterge Comanda</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Esti sigur ca doresti sa stergi comanda cu ID <b>{{ $order->id }}</b>? Acceasta actiune este ireversibila!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button wire:click="deleteOrder" type="button" class="btn btn-danger" data-bs-dismiss="modal">Sterge Comanda!</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <h1 class="mt-4 mb-5">Detalii comanda ID #{{ $order->id }}</h1>
+    {{ public_path('..\..\public_html\media\made-to-measure') }}
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-8">
@@ -88,6 +106,12 @@
                                     <td>Adresa de email</td>
                                     <td><b>{{ $order->email }}</b></td>
                                 </tr>
+                                @can('is-manager')
+                                <tr>
+                                    <td>IP:</td>
+                                    <td><b>{{ $order->ip }}</b></td>
+                                </tr>
+                                @endcan
                                 <tr>
                                     <td>Numarul de telefon</td>
                                     <td><b>{{ $order->phone_number }}</b></td>
@@ -127,7 +151,7 @@
                             <button type="button" data-bs-toggle="modal" data-bs-target="#mark-new-modal" class="btn btn-sm btn-danger">Marcheaza ca "Comanda Noua"</button>
                         @endif
                         @can('is-manager')
-                        <button class="btn btn-sm btn-danger" wire:click="deleteOrder">Sterge Comanda!</button>
+                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal">Sterge Comanda!</button>
                         @endcan
                     </div>
                 </div>

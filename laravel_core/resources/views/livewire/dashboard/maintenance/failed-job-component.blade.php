@@ -7,50 +7,52 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td>UUID:</td>
-                                <td>{{ $failedJob->payload->uuid }}</td>
-                            </tr>
-                            <tr>
-                                <td>Display Name:</td>
-                                <td>{{ $failedJob->payload->displayName }}</td>
-                            </tr>
-                            <tr>
-                                <td>Job:</td>
-                                <td>{{ $failedJob->payload->job }}</td>
-                            </tr>
-                            <tr>
-                                <td>Max Tries:</td>
-                                <td>{{ $failedJob->payload->maxTries }}</td>
-                            </tr>
-                            <tr>
-                                <td>Max Exceptions:</td>
-                                <td>{{ $failedJob->payload->maxExceptions }}</td>
-                            </tr>
-                            <tr>
-                                <td>Fail On Timeout:</td>
-                                <td>{{ $failedJob->payload->failOnTimeout }}</td>
-                            </tr>
-                            <tr>
-                                <td>Backoff:</td>
-                                <td>{{ $failedJob->payload->backoff }}</td>
-                            </tr>
-                            <tr>
-                                <td>Timeout:</td>
-                                <td>{{ $failedJob->payload->timeout }}</td>
-                            </tr>
-                            <tr>
-                                <td>Retry Until:</td>
-                                <td>{{ $failedJob->payload->retryUntil }}</td>
-                            </tr>
-                            <tr>
-                                <td>Data:</td>
-                                <td class="text-warp text-break">{{ json_encode($failedJob->payload->data) }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>UUID:</td>
+                                    <td>{{ $failedJob->payload->uuid }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Display Name:</td>
+                                    <td>{{ $failedJob->payload->displayName }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Job:</td>
+                                    <td>{{ $failedJob->payload->job }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Tries:</td>
+                                    <td>{{ $failedJob->payload->maxTries }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Exceptions:</td>
+                                    <td>{{ $failedJob->payload->maxExceptions }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fail On Timeout:</td>
+                                    <td>{{ $failedJob->payload->failOnTimeout }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Backoff:</td>
+                                    <td>{{ $failedJob->payload->backoff }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Timeout:</td>
+                                    <td>{{ $failedJob->payload->timeout }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Retry Until:</td>
+                                    <td>{{ $failedJob->payload->retryUntil }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Data:</td>
+                                    <td class="text-warp text-break">{{ json_encode($failedJob->payload->data) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -66,7 +68,7 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Exception Details</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body text-break">
                     {{ $failedJob->exception }}
                 </div>
                 <div class="modal-footer">
@@ -96,7 +98,7 @@
     <h1 class="mt-4">Job Details</h1>
     <div class="row mt-5">
         <div class="col-lg">
-            <div class="card">
+            <div class="card shadow mb-5 rounded border-0">
                 <div class="card-body">
                     <table class="table table-striped">
                         <tbody>
@@ -138,7 +140,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card">
+            <div class="card shadow mb-5 rounded border-0">
                 <div class="card-body d-flex flex-column gap-3">
                     <button class="btn btn-sm btn-success" wire:click="retryJob">Retry Job</button>
                     <button class="btn btn-sm btn-danger"  data-bs-target="#confirm-modal" data-bs-toggle="modal">Delete Job</button>

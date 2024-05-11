@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="text-uppercase" style="margin-bottom: 50px;">Inchiriere <b>Rochii</b></h1>
+    <h1 class="text-uppercase mb-5 pt-2">Inchiriere <b>Rochii</b></h1>
     <h2>Închiriază Eleganța la Lofty: Rochii Unice și Inedite pentru Orice Ocazie</h2>
     <p>La <b>Lofty</b>, aducem eleganța și rafinamentul direct la tine, oferindu-ți acces la o colecție impresionantă de
         rochii de ocazie, de mireasă și business, realizate cu măiestrie în propriul nostru atelier. Fie că te

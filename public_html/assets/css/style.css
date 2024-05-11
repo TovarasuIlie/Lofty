@@ -25,13 +25,13 @@
   border-radius: 0;
 }
 
-input[placeholder].form-control {
+/* input[placeholder].form-control {
   font-family: Georgia;
 }
 
 textarea[placeholder].form-control {
   font-family: Georgia;
-}
+} */
 
 .btn-black {
   background-color: #000;

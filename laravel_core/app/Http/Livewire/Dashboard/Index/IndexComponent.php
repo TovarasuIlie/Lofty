@@ -32,7 +32,7 @@ class IndexComponent extends Component
         $this->todayFinishedOrders = MadeToMeasure::whereRaw('DATE(created_at) = CURRENT_DATE()')->where('status', 2)->count();
         $this->finishedOrders = MadeToMeasure::where('status', 2)->count();
 
-        $this->visits = json_decode(Visits::select('report_day', 'total_visits')->whereBetween('report_day', [Carbon::now()->addDays(-15)->format('Y-m-d'), Carbon::now()->addDays(15)->format('Y-m-d')])->get());
+        $this->visits = json_decode(Visits::select('report_day', 'total_visits')->whereBetween('report_day', [Carbon::now()->addDays(-30)->format('Y-m-d'), Carbon::now()->format('Y-m-d')])->get());
     }
 
     public function render()

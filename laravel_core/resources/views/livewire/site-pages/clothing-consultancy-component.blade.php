@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="text-uppercase" style="margin-bottom: 50px;">Consultanta <b>Vestimentara</b></h1>
+    <h1 class="text-uppercase mb-5 pt-2">Consultanta <b>Vestimentara</b></h1>
     <h2>Bine ai venit la <b>Lofty!</b></h2>
     <p>Suntem aici pentru a-ți oferi ghidare și încredere în călătoria ta către un stil vestimentar care să te
         reprezinte și să îți accentueze frumusețea naturală. La <b>Lofty</b>, ne specializăm în consultanță vestimentară
