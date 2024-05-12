@@ -11,7 +11,7 @@ class VisitsTrackerComponent extends Component
 {
     public function render()
     {
-        $visitorsTracker = VisitorsTracker::paginate(10);
+        $visitorsTracker = VisitorsTracker::orderBy('visited_at', 'desc')->paginate(50);
         return view('livewire.dashboard.maintenance.visits-tracker-component', compact('visitorsTracker'));
     }
 }

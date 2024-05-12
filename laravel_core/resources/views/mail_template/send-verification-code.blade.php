@@ -124,10 +124,9 @@
                 <p
                   style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">
                   Salut!</p>
-                <p
-                  style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">
-                  Mai jos ai primit un link de acces de la administratorii <b>Lofty by Flory Cucu</b> pentru ati crea un cont. Ai <b>10
-                    minute</b> la dispozitie sa accesezi link-ul. Acest link poate fi accesat <b>o singura data</b>, dupa accesare, nemaifiind valabil.</p>
+                <p style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">
+                  Deoarece s-a detectat schimbarea locatiei din care v-ati logat in contul <b>{{ $content['name'] }}</b>, va fost trimis un <b>cod de verificare din 6 caractere</b>.
+                  Pentru a putea valida noua locatie, introduce-ti codul de mai jos:</p>
                 <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary"
                   style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%; min-width: 100%;"
                   width="100%">
@@ -140,12 +139,10 @@
                           style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
                           <tbody>
                             <tr>
-                              <td
-                                style="font-family: Helvetica, sans-serif; font-size: 16px; vertical-align: top; border-radius: 4px; text-align: center; background-color: #0867ec;"
-                                valign="top" align="center" bgcolor="#0867ec"> <a href="{{$content['link']}}"
-                                  target="_blank"
-                                  style="border: solid 2px #000000; border-radius: 4px; box-sizing: border-box; cursor: pointer; display: inline-block; font-size: 16px; font-weight: bold; margin: 0; padding: 12px 24px; text-decoration: none; text-transform: capitalize; background-color: #000000; border-color: #000000; color: #ffffff;">Inregistreaza-te
-                                  acum</a></td>
+                              <td style="font-family: Helvetica, sans-serif; font-size: 16px; vertical-align: top; border-radius: 4px; text-align: center; background-color: #0867ec;"
+                                valign="top" align="center" bgcolor="#0867ec"> 
+                                <b>{{ $content['code'] }}</b>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
@@ -155,8 +152,7 @@
                 </table>
                 <p
                   style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">
-                  Daca nu ai solicitat acest lucru de la administratorii <b>Lofty by Flory Cucu</b>, nu lua acest mail in
-                  considerare.</p>
+                  Daca nu ai solicitat acest lucru, nu lua acest mail in considerare.</p>
                 <p
                   style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">
                   Good luck! Hope it works.</p>

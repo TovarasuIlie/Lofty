@@ -1,17 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MadeToMeasureController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ManagementUsersController;
-use App\Http\Controllers\CreateAccountLinkController;
 use App\Http\Controllers\LocationChangeController;
-use App\Http\Controllers\OrdersController;
 use App\Http\Livewire\Dashboard\ManagerArea\AccountDetailsComponent;
 use App\Http\Livewire\Dashboard\ManagerArea\AccountManagementComponent;
 use App\Http\Livewire\Dashboard\Authentification\LoginDashboard as AuthentificationLoginDashboard;
 use App\Http\Livewire\Dashboard\Authentification\RegisterDashboard;
 use App\Http\Livewire\Dashboard\Authentification\ResetPasswordDashboard;
+use App\Http\Livewire\Dashboard\Authentification\VerifyIPComponent;
+use App\Http\Livewire\Dashboard\Contact\ContactComponent as DashboardContactComponent;
+use App\Http\Livewire\Dashboard\Contact\ViewMessageComponent;
 use App\Http\Livewire\Dashboard\Index\IndexComponent as IndexIndexComponent;
 use App\Http\Livewire\Dashboard\MadeToMeasure\FinishedOrders;
 use App\Http\Livewire\Dashboard\MadeToMeasure\NewOrders;
@@ -76,6 +75,7 @@ Route::get('/politica-magazin', ShopPolicyComponent::class)->middleware([TrackVi
 
 Route::prefix('dashboard')->group(function () {
     Route::get('/logare', AuthentificationLoginDashboard::class)->middleware([RedirectIfAuthenticated::class]);
+    Route::get('/logare/verificare-cont', VerifyIPComponent::class);
 
     Route::get('/logare/logout', [DashboardController::class, 'logout']);
 
@@ -83,18 +83,15 @@ Route::prefix('dashboard')->group(function () {
 
     Route::get('/reseteaza-parola/{token}', ResetPasswordDashboard::class)->middleware([RedirectIfAuthenticated::class]);
 
-    Route::get('/verificare', [LocationChangeController::class, 'viewPage']);
-
-    Route::post('/verificare/verifyAccount', [LocationChangeController::class, 'verifyAccount']);
-
     Route::group(['prefix' => '', 'middleware' => [AdminAuth::class]], function() {
         Route::get('', IndexIndexComponent::class);
     
-        // Route::get('/made-to-measure/comenzi-noi', [OrdersController::class, 'viewNewOrdersPage']);
         Route::get('/made-to-measure/comenzi-noi', NewOrders::class);
         Route::get('/made-to-measure/comanda/{order}', ViewOrder::class);
-        
         Route::get('/made-to-measure/comenzi-finalizate', FinishedOrders::class);
+
+        Route::get('/contact/mesaje', DashboardContactComponent::class);
+        Route::get('/contact/vezi-mesaj/{message}', ViewMessageComponent::class);
     
         Route::group(['prefix' => 'conturi', 'middleware' => [ManagerArea::class]], function () {
             Route::get('/gestionare-conturi', AccountManagementComponent::class);
@@ -108,6 +105,7 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('', GenerateLinkComponent::class);
             });
         });
+
         Route::group(['prefix' => 'maintenance', 'middleware' => [ManagerArea::class]], function() {
             Route::get('', MaintenanceCompponent::class);
             Route::get('/active-jobs', ActiveJobsListComponent::class);

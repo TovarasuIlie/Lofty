@@ -72,6 +72,11 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-check"></i></div>
                                 Comenzi Finalizate
                             </a>
+                            <div class="sb-sidenav-menu-heading">Contact</div>
+                            <a class="nav-link {{ request()->is('dashboard/contact/mesaje') ? 'active' : '' }}" href="/dashboard/contact/mesaje" wire:navigate>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-message"></i></div>
+                                Mesaje Noi
+                            </a>
                             @can('is-manager')
                                 <div class="sb-sidenav-menu-heading">Manager Area</div>
                                 <a class="nav-link {{ request()->is('dashboard/conturi/gestionare-conturi') ? 'active' : '' }}" href="/dashboard/conturi/gestionare-conturi" wire:navigate>
@@ -102,10 +107,10 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <p style="font-size: 13px;">&copy; 2023-<?php echo date('Y'); ?> Copyright. All Rights Reseved | by <a
+                            <div style="font-size: 13px;">&copy; 2023-<?php echo date('Y'); ?> Copyright. All Rights Reseved | by <a
                             href="https://www.instagram.com/niculai_ilie/"
                             style="text-decoration: none; font-weight: bold; color: black;" target="_blank">Niculai
-                            Ilie-Traian</a> &copy;</p>
+                            Ilie-Traian</a> &copy;</div>
                         </div>
                     </div>
                 </footer>

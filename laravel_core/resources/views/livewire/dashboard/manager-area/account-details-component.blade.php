@@ -95,7 +95,10 @@
                                     <td class="fw-bold">{{ $user->email }}</td>
                                 </tr>
                                 @can('is-manager')
-s
+s                                <tr>
+                                    <td>IP:</td>
+                                    <td class="fw-bold">{{ $user->ip }}</td>
+                                </tr>
                                 @endcan
                                 <tr>
                                     <td>Cont creat in:</td>
@@ -124,7 +127,7 @@ s
                     </div>
                 </div>
             </div>
-            <div class="col-md">
+            <div class="col-md-3">
                 <div class="card shadow mb-5 bg-body rounded border-0">
                     <div class="card-header fw-bold fs-4">
                         Admin Area
