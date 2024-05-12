@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\SitePages;
 
 use App\Models\MadeToMeasure;
+use App\Models\Settings;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
@@ -70,33 +71,37 @@ class MadeToMeasureComponent extends Component
     public $photos = [];
 
     public function placeOrder() {
-        $this->validate();
+        if(!Settings::first()->made_to_measure_closed) {
+            $this->validate();
 
-        $order = [
-            'fullname'                      => $this->fullname,
-            'email'                         => $this->email,
-            'ip'                            => Request::ip(),
-            'phone_number'                  => $this->phoneNumber,
-            'height'                        => $this->height,
-            'bust_circumference'            => $this->bustCircumference,
-            'circumference_under_the_bust'  => $this->circuferenceUnderTheBust,
-            'waist_circumference'           => $this->waistCircumference,
-            'hips_circumference'            => $this->hipsCircumference,
-            'arm_length'                    => $this->armLength,
-            'inside_length_leg'             => $this->insideLengthLeg,
-            'shoulder_width'                => $this->shoulderWidth
-        ];
-
-        $madeToMeasure = MadeToMeasure::create($order);
-        if($madeToMeasure) {
-            foreach ($this->photos as $photo) {
-                $madeToMeasure->addMedia($photo->getRealPath())->toMediaCollection('made-to-measure');
+            $order = [
+                'fullname'                      => $this->fullname,
+                'email'                         => $this->email,
+                'ip'                            => Request::ip(),
+                'phone_number'                  => $this->phoneNumber,
+                'height'                        => $this->height,
+                'bust_circumference'            => $this->bustCircumference,
+                'circumference_under_the_bust'  => $this->circuferenceUnderTheBust,
+                'waist_circumference'           => $this->waistCircumference,
+                'hips_circumference'            => $this->hipsCircumference,
+                'arm_length'                    => $this->armLength,
+                'inside_length_leg'             => $this->insideLengthLeg,
+                'shoulder_width'                => $this->shoulderWidth
+            ];
+    
+            $madeToMeasure = MadeToMeasure::create($order);
+            if($madeToMeasure) {
+                foreach ($this->photos as $photo) {
+                    $madeToMeasure->addMedia($photo->getRealPath())->toMediaCollection('made-to-measure');
+                }
+                $this->reset(['fullname', 'email', 'phoneNumber', 'height', 'bustCircumference', 'circuferenceUnderTheBust', 'waistCircumference', 
+                              'hipsCircumference', 'armLength', 'insideLengthLeg', 'shoulderWidth', 'photos']);
+                $this->dispatch('alert', type: 'success', position: 'center', title: 'Cererea a fost plasata cu succes! Te vom contacta in cel mai scurt timp.', timer: 3500);
+            } else {
+                $this->dispatch('alert', type: 'error', position: 'center', title: 'A aparut o eroare, te rugam sa reincerci mai tarziu.', timer: 3500);
             }
-            $this->reset(['fullname', 'email', 'phoneNumber', 'height', 'bustCircumference', 'circuferenceUnderTheBust', 'waistCircumference', 
-                          'hipsCircumference', 'armLength', 'insideLengthLeg', 'shoulderWidth', 'photos']);
-            $this->dispatch('alert', type: 'success', position: 'center', title: 'Cererea a fost plasata cu succes! Te vom contacta in cel mai scurt timp.', timer: 3500);
         } else {
-            $this->dispatch('alert', type: 'error', position: 'center', title: 'A aparut o eroare, te rugam sa reincerci mai tarziu.', timer: 3500);
+            $this->dispatch('alert', type: 'error', position: 'center', title: 'Momentan nu se pot plasa comenzi.', timer: 3500);
         }
     }
 

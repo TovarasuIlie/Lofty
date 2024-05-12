@@ -82,7 +82,7 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                     Link Creare Conturi
                                 </a>
-                                    <a class="nav-link {{ request()->is('dashboard/maintenace') ? 'active' : '' }}" href="/dashboard/maintenace" wire:navigate>
+                                    <a class="nav-link {{ request()->is('dashboard/maintenance') ? 'active' : '' }}" href="/dashboard/maintenance" wire:navigate>
                                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                     Maintenace
                                 </a>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Loghat ca:</div>
+                        <div class="small">Logat ca:</div>
                         {{ auth()->user()->name }}
                     </div>
                 </nav>
@@ -102,12 +102,10 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
+                            <p style="font-size: 13px;">&copy; 2023-<?php echo date('Y'); ?> Copyright. All Rights Reseved | by <a
+                            href="https://www.instagram.com/niculai_ilie/"
+                            style="text-decoration: none; font-weight: bold; color: black;" target="_blank">Niculai
+                            Ilie-Traian</a> &copy;</p>
                         </div>
                     </div>
                 </footer>

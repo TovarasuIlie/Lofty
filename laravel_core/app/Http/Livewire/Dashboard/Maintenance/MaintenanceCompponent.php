@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Dashboard\Maintenance;
 
 use App\Models\MadeToMeasure;
 use App\Models\Settings;
+use App\Models\VisitorsTracker;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -17,6 +19,7 @@ class MaintenanceCompponent extends Component
     public $newOrders;
     public $takenOrders;
     public $finishedOrders;
+    public $visitsTracker;
 
     public $settings;
 
@@ -26,6 +29,7 @@ class MaintenanceCompponent extends Component
         $this->newOrders = MadeToMeasure::where('status', 0)->count();
         $this->takenOrders = MadeToMeasure::where('status', 1)->count();
         $this->finishedOrders = MadeToMeasure::where('status', 2)->count();
+        $this->visitsTracker = VisitorsTracker::whereBetween('visited_at', [Carbon::now()->addDays(-30)->format('Y-m-d H:i:s'), Carbon::now()->format('Y-m-d H:i:s')])->count();
         $this->settings = Settings::first();
     }
 

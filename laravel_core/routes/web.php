@@ -20,6 +20,7 @@ use App\Http\Livewire\Dashboard\Maintenance\ActiveJobsListComponent;
 use App\Http\Livewire\Dashboard\Maintenance\FailedJobsListComponent;
 use App\Http\Livewire\Dashboard\Maintenance\FailedJobComponent;
 use App\Http\Livewire\Dashboard\Maintenance\MaintenanceCompponent;
+use App\Http\Livewire\Dashboard\Maintenance\VisitsTrackerComponent;
 use App\Http\Livewire\Dashboard\ManagerArea\AccountLogsComponent;
 use App\Http\Livewire\Dashboard\ManagerArea\GenerateLinkComponent;
 use App\Http\Livewire\SitePages\AboutUsComponent;
@@ -107,9 +108,10 @@ Route::prefix('dashboard')->group(function () {
                 Route::get('', GenerateLinkComponent::class);
             });
         });
-        Route::group(['prefix' => 'maintenace', 'middleware' => [ManagerArea::class]], function() {
+        Route::group(['prefix' => 'maintenance', 'middleware' => [ManagerArea::class]], function() {
             Route::get('', MaintenanceCompponent::class);
             Route::get('/active-jobs', ActiveJobsListComponent::class);
+            Route::get('/visits-tracker', VisitsTrackerComponent::class);
 
             Route::get('/failed-jobs', FailedJobsListComponent::class);
             Route::get('/failed-jobs/job/{uuid}', FailedJobComponent::class);

@@ -52,16 +52,25 @@
                                     <td>Active Jobs:</td>
                                     <td class="fw-bold">{{ $activeJobs }}</td>
                                     <td>
-                                        <a href="/dashboard/maintenace/active-jobs" class="btn btn-sm btn-info">Show All</a>
+                                        <a href="/dashboard/maintenance/active-jobs" class="btn btn-sm btn-info">Show All</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Failed Jobs:</td>
                                     <td class="fw-bold">{{ $failedJobs }}</td>
                                     <td>
-                                        <a href="/dashboard/maintenace/failed-jobs" class="btn btn-sm btn-info">Show All</a>
+                                        <a href="/dashboard/maintenance/failed-jobs" class="btn btn-sm btn-info">Show All</a>
                                     </td>
                                 </tr>
+                                @can('is-manager')
+                                <tr>
+                                    <td>Visits Tracker:</td>
+                                    <td class="fw-bold">{{ $visitsTracker }} IPs</td>
+                                    <td>
+                                        <a href="/dashboard/maintenance/visits-tracker" class="btn btn-sm btn-info">Show All</a>
+                                    </td>
+                                </tr>
+                                @endcan
                             </tbody>
                         </table>
                     </div>

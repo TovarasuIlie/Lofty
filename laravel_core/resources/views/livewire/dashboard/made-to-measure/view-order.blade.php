@@ -87,7 +87,6 @@
         </div>
     </div>
     <h1 class="mt-4 mb-5">Detalii comanda ID #{{ $order->id }}</h1>
-    {{ public_path('..\..\public_html\media\made-to-measure') }}
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-8">
