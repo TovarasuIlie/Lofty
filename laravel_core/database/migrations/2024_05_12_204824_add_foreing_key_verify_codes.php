@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('verify_codes', function (Blueprint $table) {
-            $table->bigInteger('id', false, true)->primary();
-            $table->string('code', 6);
-            $table->timestamps();
+        Schema::table('verify_codes', function (Blueprint $table) {
+            $table->index('id');
+            $table->foreign('id', 'FK_UserIDVerify')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('verify_codes');
+        //
     }
 };

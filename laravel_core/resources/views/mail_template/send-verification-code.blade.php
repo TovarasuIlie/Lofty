@@ -139,8 +139,8 @@
                           style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
                           <tbody>
                             <tr>
-                              <td style="font-family: Helvetica, sans-serif; font-size: 16px; vertical-align: top; border-radius: 4px; text-align: center; background-color: #0867ec;"
-                                valign="top" align="center" bgcolor="#0867ec"> 
+                              <td style="font-family: Helvetica, sans-serif; font-size: 16px; vertical-align: top; border-radius: 4px; text-align: center;"
+                                valign="top" align="center"> 
                                 <b>{{ $content['code'] }}</b>
                               </td>
                             </tr>

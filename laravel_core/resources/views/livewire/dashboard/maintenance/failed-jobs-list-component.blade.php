@@ -19,7 +19,7 @@
                     <td>{{ $failedJob->queue }}</td>
                     <td>{{ $failedJob->failed_at }}</td>
                     <td>
-                        <a href="/dashboard/maintenace/failed-jobs/job/{{ $failedJob->uuid }}" class="btn btn-sm btn-secondary" wire:navigate.hover>See Details</a>
+                        <a href="/dashboard/maintenance/failed-jobs/job/{{ $failedJob->uuid }}" class="btn btn-sm btn-secondary" wire:navigate.hover>See Details</a>
                     </td>
                 </tr>
             @endforeach

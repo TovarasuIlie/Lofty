@@ -83,7 +83,7 @@ Route::prefix('dashboard')->group(function () {
 
     Route::get('/reseteaza-parola/{token}', ResetPasswordDashboard::class)->middleware([RedirectIfAuthenticated::class]);
 
-    Route::group(['prefix' => '', 'middleware' => [AdminAuth::class]], function() {
+    Route::group(['prefix' => '', 'middleware' => [AdminAuth::class, LocationChangeMiddleware::class]], function() {
         Route::get('', IndexIndexComponent::class);
     
         Route::get('/made-to-measure/comenzi-noi', NewOrders::class);

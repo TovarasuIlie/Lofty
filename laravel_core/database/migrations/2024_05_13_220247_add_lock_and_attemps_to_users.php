@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('verify_codes', function (Blueprint $table) {
-            $table->bigInteger('id', false, true)->primary();
-            $table->string('code', 6);
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->tinyInteger('attemps');
+            $table->boolean('lock_account');
         });
     }
 
@@ -23,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('verify_codes');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

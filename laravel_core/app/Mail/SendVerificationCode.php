@@ -13,12 +13,14 @@ class SendVerificationCode extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public array $content;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($content)
     {
-        //
+        $this->content = $content;
     }
 
     /**
@@ -27,7 +29,7 @@ class SendVerificationCode extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Send Verification Code',
+            subject: $this->content['subject']
         );
     }
 
@@ -37,7 +39,7 @@ class SendVerificationCode extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail_template.send-verification-code',
         );
     }
 

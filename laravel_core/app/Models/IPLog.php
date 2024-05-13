@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class VerifyCode extends Model
+class IPLog extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+
+    public $table = 'ip_logs';
 
     protected $fillable = [
-        'id', 
-        'code'
+        'user_id',
+        'ip'
     ];
 }

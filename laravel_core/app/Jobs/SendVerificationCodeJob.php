@@ -2,22 +2,26 @@
 
 namespace App\Jobs;
 
+use App\Mail\SendVerificationCode;
+use App\Models\VerifyCode;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Mail;
 
 class SendVerificationCodeJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected $details;
     /**
      * Create a new job instance.
      */
-    public function __construct()
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
 
     /**
@@ -25,6 +29,7 @@ class SendVerificationCodeJob implements ShouldQueue
      */
     public function handle(): void
     {
-        //
+        $email = new SendVerificationCode($this->details['content']);
+        Mail::to($this->details['email'])->send($email);
     }
 }
