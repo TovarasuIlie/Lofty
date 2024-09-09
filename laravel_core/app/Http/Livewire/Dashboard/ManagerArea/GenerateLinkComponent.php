@@ -4,8 +4,10 @@ namespace App\Http\Livewire\Dashboard\ManagerArea;
 
 use App\Jobs\SendLinkOnEmailJob;
 use App\Models\CreateAccountLink;
+use App\Models\Logs;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Rule;
@@ -42,6 +44,12 @@ class GenerateLinkComponent extends Component
                     ]
                 ];
                 SendLinkOnEmailJob::dispatch($details)->onQueue('send-create-link-email');
+                $log = [
+                    'user_id'   => auth()->user()->id,
+                    'ip'        => Request::ip(),
+                    'text'      => "Administratorul <b>".auth()->user()->name."</b> a trimis un link de generare pe adresa <b>".$this->email."</b>."
+                ];
+                Logs::create($log);
                 $this->reset(['email']);
                 request()->session()->flash('success', 'Link-ul a fost trimis cu succes!');
             }
@@ -52,6 +60,12 @@ class GenerateLinkComponent extends Component
 
     public function deleteLink($id) {
         if(CreateAccountLink::destroy($id)) {
+            $log = [
+                'user_id'   => auth()->user()->id,
+                'ip'        => Request::ip(),
+                'text'      => "Administratorul <b>".auth()->user()->name."</b> a sters tokenul cu ID <b>".$id."</b>."
+            ];
+            Logs::create($log);
             request()->session()->flash('success', 'Token a fost sters cu succes!');
         } else {
             request()->session()->flash('error', 'Token-ul nu mai exista sau a fost sters deja!');

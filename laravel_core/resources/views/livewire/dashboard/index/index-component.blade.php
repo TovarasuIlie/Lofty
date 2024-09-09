@@ -74,34 +74,27 @@
                 </div>
                 <div class="card-body">
                     <table class="table">
+                        @foreach($onlineUsers as $user)
                         <tr>
-                            <td>Niculai Ilie</td>
+                            <td>{{ $user->name }}</td>
                             <td>
-                                <span class="badge bg-success">Admin</span>
+                                @if($user->role_id == App\Models\UserRole::CLIENT)
+                                <span class="badge rounded-pill bg-secondary">Client</span>
+                                @endif
+                                @if($user->role_id == App\Models\UserRole::ADMIN)
+                                <span class="badge rounded-pill bg-success">Admin</span>
+                                @endif
+                                @if($user->role_id == App\Models\UserRole::MANAGER)
+                                <span class="badge rounded-pill bg-danger">Manager</span>
+                                @endif
                             </td>
+                            <td>{{ \Carbon\Carbon::parse($user->logged_at)->diffForHumans(now(), Carbon\CarbonInterface::DIFF_ABSOLUTE, true) }}</td>
                         </tr>
-                        <tr>
-                            <td>Niculai Ilie</td>
-                            <td>
-                                <span class="badge bg-success">Admin</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Niculai Ilie</td>
-                            <td>
-                                <span class="badge bg-success">Admin</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Niculai Ilie</td>
-                            <td>
-                                <span class="badge bg-success">Admin</span>
-                            </td>
-                        </tr>
+                        @endforeach
                     </table>
                 </div>
                 <div class="card-footer text-muted">
-                    Total: 3 administartori
+                    Total: {{ count($onlineUsers) }} administratori online
                 </div>
             </div>
         </div>
